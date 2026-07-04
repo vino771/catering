@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Admin — Tiffin Ledger</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/admin.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+<div class="app-shell">
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand__mark">TL</div>
+      <div>
+        <div class="brand__title">Tiffin Ledger</div>
+        <div class="brand__subtitle">Admin Console</div>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <button class="btn btn--ghost" id="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+    </div>
+  </header>
+
+  <section class="grid grid--4 admin-cards">
+    <div class="stat-card stat-card--accent">
+      <div class="stat-card__label">Today's Orders</div>
+      <div class="stat-card__value" id="card-orders">0</div>
+    </div>
+    <div class="stat-card stat-card--accent">
+      <div class="stat-card__label">Today's Expense</div>
+      <div class="stat-card__value" id="card-expense">₹0</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__label">Users</div>
+      <div class="stat-card__value" id="card-users">0</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__label">Pending Orders</div>
+      <div class="stat-card__value" id="card-pending">0</div>
+    </div>
+  </section>
+
+  <section class="receipt-card">
+    <div class="admin-toolbar">
+      <div class="field">
+        <label for="admin-date-picker">Viewing date</label>
+        <input type="date" id="admin-date-picker" />
+      </div>
+      <div class="export-actions">
+        <button class="btn btn--teal btn--small" id="admin-export-pdf"><i class="fa-solid fa-file-pdf"></i> PDF</button>
+        <button class="btn btn--ghost btn--small" id="admin-export-txt"><i class="fa-solid fa-file-lines"></i> TXT</button>
+      </div>
+    </div>
+
+    <h2 class="section-title">Food Summary · <span id="summary-date-label">—</span></h2>
+    <div id="summary-body">
+      <p class="report-loading">Loading…</p>
+    </div>
+  </section>
+
+  <section class="grid grid--2 admin-settings-grid">
+
+    <div class="receipt-card">
+      <h2 class="section-title">Ordering Cutoffs</h2>
+      <form id="cutoff-form" class="settings-form">
+        <div class="field-row">
+          <div class="field">
+            <label for="breakfast-cutoff">Breakfast &amp; Lunch cutoff</label>
+            <input type="time" id="breakfast-cutoff" required />
+          </div>
+          <div class="field">
+            <label for="dinner-cutoff">Dinner cutoff</label>
+            <input type="time" id="dinner-cutoff" required />
+          </div>
+        </div>
+        <button type="submit" class="btn btn--primary">Save Cutoffs</button>
+      </form>
+    </div>
+
+    <div class="receipt-card">
+      <h2 class="section-title">Menu Manager</h2>
+      <div id="menu-manager-list"></div>
+      <hr class="perforation" />
+      <form id="menu-item-form" class="add-item-form">
+        <div class="field">
+          <label for="new-item-name">Item name</label>
+          <input type="text" id="new-item-name" required />
+        </div>
+        <div class="field">
+          <label for="new-item-price">Price (₹)</label>
+          <input type="number" id="new-item-price" min="0" step="0.5" required />
+        </div>
+        <div class="field">
+          <label for="new-item-meal">Meal</label>
+          <select id="new-item-meal">
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="dinner">Dinner</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn--primary btn--small">Add Item</button>
+      </form>
+    </div>
+
+  </section>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>

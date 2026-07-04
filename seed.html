@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Seed Data — Tiffin Ledger</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="app-shell" style="max-width:640px;">
+  <section class="receipt-card">
+    <h1 class="section-title">One-time Data Seed</h1>
+    <p class="text-muted" style="margin-bottom:16px;">
+      Fill in your Firebase config in <code>js/firebase.js</code> first. Then click the
+      button below once to create the starter menu, default cutoff settings, and two
+      sample logins (admin / user1). Safe to click more than once — it will not
+      duplicate existing data. Delete this file when you're done.
+    </p>
+    <button class="btn btn--primary" id="run-seed-btn">Run Seed</button>
+    <pre id="seed-log" style="margin-top:16px; white-space:pre-wrap; font-family:var(--font-mono); font-size:13px;"></pre>
+  </section>
+</div>
+
+<script type="module">
+  import { runSeed } from "./js/seed.js";
+  const btn = document.getElementById("run-seed-btn");
+  const log = document.getElementById("seed-log");
+  btn.addEventListener("click", async () => {
+    btn.disabled = true;
+    btn.textContent = "Seeding…";
+    log.textContent = "";
+    try {
+      await runSeed((msg) => (log.textContent += msg + "\n"));
+    } catch (err) {
+      log.textContent += "ERROR: " + err.message + "\n";
+      console.error(err);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Run Seed Again";
+    }
+  });
+</script>
+</body>
+</html>

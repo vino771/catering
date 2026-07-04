@@ -1,0 +1,95 @@
+/* css/login.css */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(900px 500px at 85% -10%, #FFF7EA 0%, transparent 60%),
+    var(--paper);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--paper-raised);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 50px var(--shadow);
+  padding: 40px 34px 34px;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--brick), var(--gold));
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-header .brand__mark {
+  margin: 0 auto 14px;
+}
+
+.login-header h1 {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.login-header p {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.field {
+  margin-bottom: 18px;
+}
+
+.field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+
+.field input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line);
+  background: var(--paper);
+  font-size: 15px;
+  color: var(--ink);
+  transition: border-color 0.15s ease;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--brick);
+}
+
+.login-error {
+  min-height: 18px;
+  color: var(--brick-dark);
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.login-footnote {
+  text-align: center;
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 20px;
+}

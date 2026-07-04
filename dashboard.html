@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Dashboard — Tiffin Ledger</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/dashboard.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+<div class="app-shell">
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand__mark">TL</div>
+      <div>
+        <div class="brand__title">Tiffin Ledger</div>
+        <div class="brand__subtitle">Your meal &amp; expense book</div>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <a class="btn btn--ghost" href="order.html"><i class="fa-solid fa-bowl-food"></i> Order Food</a>
+      <a class="btn btn--ghost" href="reports.html"><i class="fa-solid fa-file-lines"></i> Reports</a>
+      <button class="btn btn--ghost" id="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+    </div>
+  </header>
+
+  <section class="welcome-block">
+    <h1>Welcome, <span id="welcome-name">—</span></h1>
+    <p class="today-date" id="today-date-label">—</p>
+  </section>
+
+  <section class="grid grid--2 stats-row">
+    <div class="stat-card stat-card--accent">
+      <div class="stat-card__label">Today's Expense</div>
+      <div class="stat-card__value" id="today-expense">₹0</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__label">Monthly Expense · <span id="month-label"></span></div>
+      <div class="stat-card__value" id="monthly-expense">₹0</div>
+    </div>
+  </section>
+
+  <h2 class="section-title">Meal Status</h2>
+  <section class="grid grid--3 meal-status-grid">
+
+    <div class="status-card" id="status-breakfast">
+      <div class="status-card__head">
+        <span class="status-card__meal">Breakfast</span>
+        <span class="status-badge status-badge--pending">NOT ORDERED</span>
+      </div>
+      <p class="status-detail">—</p>
+    </div>
+
+    <div class="status-card" id="status-lunch">
+      <div class="status-card__head">
+        <span class="status-card__meal">Lunch</span>
+        <span class="status-badge status-badge--pending">NOT ORDERED</span>
+      </div>
+      <p class="status-detail">—</p>
+    </div>
+
+    <div class="status-card" id="status-dinner">
+      <div class="status-card__head">
+        <span class="status-card__meal">Dinner</span>
+        <span class="status-badge status-badge--pending">NOT ORDERED</span>
+      </div>
+      <p class="status-detail">—</p>
+    </div>
+
+  </section>
+
+  <hr class="perforation" />
+
+  <div class="quick-actions">
+    <a class="btn btn--primary" href="order.html"><i class="fa-solid fa-bowl-food"></i> Order Food</a>
+    <a class="btn btn--teal" href="reports.html"><i class="fa-solid fa-chart-simple"></i> View Reports</a>
+    <a class="btn btn--ghost" href="reports.html"><i class="fa-solid fa-download"></i> Download PDF</a>
+  </div>
+
+</div>
+
+<script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

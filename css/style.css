@@ -1,0 +1,312 @@
+/* ==========================================================================
+   TIFFIN LEDGER — base design system
+   Theme: a digital tiffin ledger. Cards read like receipts/bill slips —
+   perforated edges, stamped status badges, ledger-mono figures for money.
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap");
+
+:root {
+  /* Color tokens */
+  --paper: #FBF7EF;
+  --paper-raised: #FFFFFF;
+  --ink: #23201B;
+  --ink-soft: #6E655A;
+  --brick: #B33A2E;
+  --brick-dark: #8E2E24;
+  --teal: #2F6E6A;
+  --gold: #D9A441;
+  --line: #E4DBC9;
+  --shadow: rgba(35, 32, 27, 0.10);
+
+  /* Type */
+  --font-display: "Fraunces", serif;
+  --font-body: "Inter", -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 8px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #FFFDF7 0%, transparent 60%),
+    var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0; }
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+input, select {
+  font-family: var(--font-body);
+}
+
+/* ---------------------------- Perforation motif ---------------------------- */
+/* A dashed "tear line" used to separate ledger sections, echoing receipt paper. */
+.perforation {
+  border: none;
+  height: 0;
+  border-top: 2px dashed var(--line);
+  margin: 22px 0;
+  position: relative;
+}
+.perforation::before, .perforation::after {
+  content: "";
+  position: absolute;
+  top: -7px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: inset 0 0 0 2px var(--line);
+}
+.perforation::before { left: -33px; }
+.perforation::after { right: -33px; }
+
+/* --------------------------------- Shell layout --------------------------------- */
+
+.app-shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 28px 22px 80px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand__mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--brick);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  box-shadow: 0 4px 10px var(--shadow);
+}
+
+.brand__title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.brand__subtitle {
+  font-size: 12px;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------- Buttons --------------------------------- */
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 11px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn:active { transform: scale(0.97); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.btn--primary {
+  background: var(--brick);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(179, 58, 46, 0.28);
+}
+.btn--primary:hover:not(:disabled) { background: var(--brick-dark); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+}
+.btn--ghost:hover { border-color: var(--ink-soft); }
+
+.btn--teal {
+  background: var(--teal);
+  color: #fff;
+}
+
+.btn--small { padding: 8px 16px; font-size: 13px; }
+.btn--block { width: 100%; justify-content: center; }
+
+/* -------------------------------- Receipt card -------------------------------- */
+
+.receipt-card {
+  background: var(--paper-raised);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px var(--shadow);
+  padding: 26px 28px;
+  position: relative;
+  border: 1px solid var(--line);
+}
+
+.receipt-card::before {
+  content: "";
+  position: absolute;
+  top: -8px; left: 24px; right: 24px;
+  height: 16px;
+  background:
+    radial-gradient(circle at 8px 8px, transparent 8px, var(--paper) 8.5px) repeat-x;
+  background-size: 24px 16px;
+}
+
+/* ---------------------------------- Grid ---------------------------------- */
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 860px) {
+  .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
+}
+
+/* --------------------------------- Stat card --------------------------------- */
+
+.stat-card {
+  background: var(--paper-raised);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  padding: 20px;
+  box-shadow: 0 6px 18px var(--shadow);
+}
+
+.stat-card__label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+
+.stat-card__value {
+  font-family: var(--font-mono);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.stat-card--accent .stat-card__value { color: var(--brick); }
+
+/* -------------------------------- Status badge -------------------------------- */
+/* Rendered like a rubber ink stamp on a receipt */
+
+.status-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 2px solid currentColor;
+  transform: rotate(-2deg);
+}
+
+.status-badge--ordered { color: var(--teal); background: rgba(47,110,106,0.08); }
+.status-badge--pending { color: var(--brick); background: rgba(179,58,46,0.06); }
+
+/* ---------------------------------- Toasts ---------------------------------- */
+
+#toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: all 0.25s ease;
+}
+.toast--visible { opacity: 1; transform: translateY(0); }
+.toast--success { background: var(--teal); }
+.toast--error { background: var(--brick-dark); }
+
+/* --------------------------------- Utility --------------------------------- */
+
+.text-muted { color: var(--ink-soft); }
+.section-title {
+  font-family: var(--font-display);
+  font-size: 19px;
+  margin-bottom: 14px;
+}
+.eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--brick);
+  font-weight: 700;
+  margin-bottom: 6px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Sign in — Tiffin Ledger</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/login.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body class="login-page">
+
+  <div class="login-card">
+    <div class="login-header">
+      <div class="brand__mark">TL</div>
+      <h1>Tiffin Ledger</h1>
+      <p>Sign in to order meals &amp; track your food expenses</p>
+    </div>
+
+    <form id="login-form" novalidate>
+      <div class="field">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" autocomplete="username" placeholder="e.g. user1" required />
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" placeholder="••••••••" required />
+      </div>
+      <div class="login-error" id="login-error"></div>
+      <button type="submit" class="btn btn--primary btn--block" id="login-submit">
+        <i class="fa-solid fa-utensils"></i> Sign in
+      </button>
+    </form>
+
+    <p class="login-footnote">Private group access only · No self sign-up</p>
+  </div>
+
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+/* css/admin.css */
+
+.admin-cards {
+  margin-bottom: 30px;
+}
+
+.admin-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.admin-toolbar .field {
+  margin: 0;
+  min-width: 190px;
+}
+
+.export-actions {
+  display: flex;
+  gap: 10px;
+}
+
+#summary-body {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.summary-block__title {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: var(--brick);
+}
+
+.summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+}
+
+.summary-row__qty {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--teal);
+}
+
+.report-loading {
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  font-style: italic;
+  padding: 10px 0;
+}
+
+.admin-settings-grid {
+  margin-top: 34px;
+}
+
+.settings-form .field-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.settings-form .field { flex: 1; min-width: 140px; }
+
+.menu-manager-block {
+  margin-bottom: 20px;
+}
+
+.menu-manager-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  margin-bottom: 6px;
+  background: var(--paper);
+}
+
+.menu-manager-row__name {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.menu-price-input {
+  width: 90px;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line);
+  font-family: var(--font-mono);
+  text-align: right;
+}
+
+.add-item-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin-top: 16px;
+}
+
+.add-item-form .field { margin-bottom: 0; flex: 1; min-width: 130px; }
+
+@media (max-width: 700px) {
+  .admin-toolbar { flex-direction: column; align-items: stretch; }
+  .export-actions { justify-content: stretch; }
+  .export-actions .btn { flex: 1; }
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Order Food — Tiffin Ledger</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/order.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+<div class="app-shell">
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand__mark">TL</div>
+      <div>
+        <div class="brand__title">Catering</div>
+        <div class="brand__subtitle">Order Food</div>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <a class="btn btn--ghost" href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a class="btn btn--ghost" href="reports.html"><i class="fa-solid fa-file-lines"></i> Reports</a>
+      <button class="btn btn--ghost" id="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+    </div>
+  </header>
+
+  <!-- Breakfast -->
+  <section class="meal-section receipt-card" id="meal-breakfast">
+    <div class="meal-section__head">
+      <h2 class="meal-section__title"><i class="fa-solid fa-mug-hot"></i> Breakfast</h2>
+      <span class="meal-expense-date">—</span>
+    </div>
+    <p class="ordering-closed" hidden><i class="fa-solid fa-lock"></i> Ordering closed for this meal.</p>
+    <div class="menu-items"></div>
+    <div class="meal-total-row">
+      <span class="meal-total-label">Meal Total</span>
+      <span class="meal-total-value">₹0</span>
+    </div>
+    <div class="meal-buttons">
+    <button class="btn btn-save save-order-btn">
+        <i class="fa-solid fa-floppy-disk"></i>
+        Save Order
+    </button>
+
+    <button class="btn btn-delete delete-order-btn" hidden>
+        <i class="fa-solid fa-trash"></i>
+        Delete Order
+    </button>
+</div>
+  </section>
+
+  <!-- Lunch -->
+  <section class="meal-section receipt-card" id="meal-lunch">
+    <div class="meal-section__head">
+      <h2 class="meal-section__title"><i class="fa-solid fa-bowl-rice"></i> Lunch</h2>
+      <span class="meal-expense-date">—</span>
+    </div>
+    <p class="ordering-closed" hidden><i class="fa-solid fa-lock"></i> Ordering closed for this meal.</p>
+    <div class="menu-items"></div>
+    <div class="meal-total-row">
+      <span class="meal-total-label">Meal Total</span>
+      <span class="meal-total-value">₹0</span>
+    </div>
+    <div class="meal-buttons">
+    <button class="btn btn-save save-order-btn">
+        <i class="fa-solid fa-floppy-disk"></i>
+        Save Order
+    </button>
+
+    <button class="btn btn-delete delete-order-btn" hidden>
+        <i class="fa-solid fa-trash"></i>
+        Delete Order
+    </button>
+</div>
+  </section>
+
+  <!-- Dinner -->
+  <section class="meal-section receipt-card" id="meal-dinner">
+    <div class="meal-section__head">
+      <h2 class="meal-section__title"><i class="fa-solid fa-drumstick-bite"></i> Dinner</h2>
+      <span class="meal-expense-date">—</span>
+    </div>
+    <p class="ordering-closed" hidden><i class="fa-solid fa-lock"></i> Ordering closed for this meal.</p>
+    <div class="menu-items"></div>
+    <div class="meal-total-row">
+      <span class="meal-total-label">Meal Total</span>
+      <span class="meal-total-value">₹0</span>
+    </div>
+    <div class="meal-buttons">
+    <button class="btn btn-save save-order-btn">
+        <i class="fa-solid fa-floppy-disk"></i>
+        Save Order
+    </button>
+
+    <button class="btn btn-delete delete-order-btn" hidden>
+        <i class="fa-solid fa-trash"></i>
+        Delete Order
+    </button>
+</div>
+  </section>
+
+  <div class="grand-total-bar">
+    <span class="grand-total-bar__label">Grand Total</span>
+    <span id="grand-total-value">₹0</span>
+  </div>
+
+</div>
+
+<script type="module" src="js/order.js"></script>
+</body>
+</html>
